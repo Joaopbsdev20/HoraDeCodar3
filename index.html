@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //1.Escreva um algoritmo para ler 2 valores informados pelo usuário e se o segundo valor informado for igual ou menor que ZERO, deve ser lido um novo valor. Ou seja, para o segundo valor não pode ser aceito o valor zero, nem um valor negativo.  O seu programa deve imprimir o resultado da divisão do primeiro valor lido pelo segundo valor.
+
+        function Exercicio1() {
+            var valor1 = parseInt(prompt(`Digite o 1° valor`));
+            var valor2 = parseInt(prompt(`Digite o 2° valor`));
+            dividir = valor1 / valor2;
+
+            if (valor2 <= 0) {
+                Exercicio1();
+            }
+            if (valor2 > 0) {
+                dividir;
+            }
+            window.alert(`O resultado é: ${valor1} / ${valor2} = ${dividir}`);
+        }
+
+        //2.Crie uma bomba relógio (usando somente código - para deixar claro!) cuja contagem regressiva vá de 30 a 0. Utilize "document.write" para escrever em tela e no final da repetição escreva "EXPLOSÃO".
+
+        function Exercicio2() {
+            for (let i = 30; i >= 0; i--) {
+                setTimeout(function () {
+                    document.write(i + "<br>")
+                    if (i === 0) {
+                        document.write("Explosão");
+                    }
+
+                }, (30 - i) * 1000)
+
+            }
+
+        }
+
+        //3 - Escreva um algoritmo para imprimir os números de 1 (inclusive) a 10 (inclusive) em ordem decrescente.Exemplo: 10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+
+        function Exercicio3() {
+            for (let i = 10; i > 0; i--) {
+                document.write(`${i}, `)
+            }
+        }
+        //4.Faça um algoritmo que calcule e escreva a média aritmética dos números inteiros entre 15 (inclusive) e 100 (inclusive).
+
+        function Exercicio4() {
+            let soma = 0;
+            var numeros = 0;
+
+
+            for (let i = 15; i <= 100; i++) {
+                soma += i;
+                numeros++;
+            }
+
+            let media = soma / numeros;
+            document.write(`numeros: ${numeros}, soma: ${soma}, media: ${media}`);
+        }
+
+        //5.Faça um algoritmo que calcule e escreva a média aritmética dos dois números inteiros informados pelo usuário e todos os números inteiros entre eles. Considere que o primeiro sempre será menor que o segundo.
+
+        function Exercicio5() {
+            var numero1 = parseInt(prompt(`Informe o 1° valor: `));
+            var numero2 = parseInt(prompt(`Informe o 2° valor: `));
+            valor = numero1, numero2;
+
+            if (valor <= 0 || numero1 > numero2) {
+                window.alert(`Escreva um valor que não é 0, negativo ou maior que o segundo`);
+                Exercicio5();
+            }
+            let soma = 0;
+            for (let i = numero1; i <= numero2; i++) {
+                soma += i;
+            }
+
+            let media = soma / (numero2 - numero1 + 1);
+
+            document.write(`A media aritimetica: ${media}, ${soma}`)
+        }
+
+        // 6.Escreva um programa para ler 2 notas de um aluno, calcular e imprimir a média final.
+        // Considere que a nota de aprovação é 9,5.
+        // Logo após escrever a mensagem "Calcular a média de outro aluno Sim/Não?" e solicitar um resposta.
+        // Se a resposta for "S", o programa deve ser executado novamente, caso contrário deve ser encerrado exibindo a quantidade de alunos aprovados.
+
+        function Exercicio6() {
+            let resposta = "S";
+            let numAlunosAprovados = 0;
+            while (resposta === "S") {
+                const nota1 = parseFloat(prompt(`Primeira nota do aluno: `));
+                const nota2 = parseFloat(prompt(`Segunda nota do aluno: `));
+                const media = (nota1 * nota2) / 2;
+
+                if (media >= 9.5) {
+                    numAlunosAprovados++;
+                }
+                resposta = prompt(`Calcular a media de outro aluno? S/N`).toUpperCase();
+            }
+            alert(`A quantidade de alunos aprovados: ${numAlunosAprovados}`);
+        }
+
+        // 7.Escreva um algoritmo para ler as notas de avaliações de um aluno, calcule e imprima a média (simples) desse aluno.
+        // Só devem ser aceitos valores válidos durante a leitura (0 a 10) para cada nota.
+        // São 6 notas ao total. Caso o valor informado para qualquer uma das notas esteja fora do limite estabelecido, deve ser solicitado um novo valor ao usuário. 
+
+        function Exercicio7() {
+            let notas = []; // array para armazenar as notas do aluno
+            let somaNotas = 0; // variável para armazenar a soma das notas
+
+            for (let i = 0; i < 6; i++) {
+                let nota = parseFloat(prompt(`Digite a nota ${i + 1}:`)); // lê a nota do usuário
+                while (nota < 0 || nota > 10) { // verifica se a nota é válida
+                    nota = parseFloat(prompt(`Nota inválida. Digite uma nota entre 0 e 10:`));
+                    Exercicio7();
+                }
+                notas.push(nota); // adiciona a nota ao array de notas
+                somaNotas += nota; // soma a nota à variável de soma
+            }
+
+            let media = somaNotas / 6; // calcula a média
+
+            window.alert(`A média do aluno é ${media.toFixed(2)}.`); // imprime a média com 2 casas decimais
+        }
+
+        // 8.Ler um valor N e imprimir todos os valores inteiros entre 1 (inclusive) e N (inclusive).
+        // Considere que o N será sempre maior que ZERO. N  é um valor informado pelo usuário
+
+        function Exercicio8() {
+            let n = parseFloat(prompt(`Informe um valor inteiro maior que zero: `));
+
+            for (let i = 1; i <= n; i++) {
+                alert(i);
+            }
+
+        }
+
+        //9.Escreva um algoritmo para imprimir os 10 primeiros números inteiros maiores que 100. 
+
+        function Exercicio9() {
+            let valor = 110;
+
+            for (let i = 100; i <= valor; i++)
+                alert(i);
+        }
+
+        //10.Escreva um programa para imprimir todas as tabuadas de 1 a N. N será informado pelo usuário.
+
+        function Exercicio10() {
+            let n = parseInt(prompt("Digite um número inteiro maior que zero: "));
+
+            for (let i = 1; i <= n; i++) {
+                alert(`Tabuada do ${i}:`);
+                for (let j = 1; j <= 10; j++) {
+                    alert(`${i} x ${j} = ${i * j}`);
+                }
+                console.log("");
+            }
+
+        }
+
+
+        //11.Escreva um programa em que o usuário informe 10 valores e escreva quantos desses valores lidos estão entre os números 24 e 42 (incluindo os valores 24 e 42) e quantos deles estão fora deste intervalo.
+
+        function Exercicio11() {
+            // Inicializa as variáveis de contagem
+            let dentro_intervalo = 0;
+            let fora_intervalo = 0;
+
+            // Pede para o usuário informar 10 valores
+            for (let i = 0; i < 10; i++) {
+                let valor = parseFloat(prompt("Digite um valor: "));
+
+                // Verifica se o valor está dentro do intervalo
+                if (valor >= 24 && valor <= 42) {
+                    dentro_intervalo++;
+                } else {
+                    fora_intervalo++;
+                }
+            }
+
+            // Escreve os resultados na tela
+            document.write("Valores dentro do intervalo: ", dentro_intervalo);
+            document.write("Valores fora do intervalo: ", fora_intervalo);
+
+        }
+    </script>
+
+    <button onclick="Exercicio1()">Exercício 1</button>
+    <button onclick="Exercicio2()">Exercicio 2</button>
+    <button onclick="Exercicio3()">Exercicio 3</button>
+    <button onclick="Exercicio4()">Exercicio 4</button>
+    <button onclick="Exercicio5()">Exercicio 5</button>
+    <button onclick="Exercicio6()">Exercício 6</button>
+    <button onclick="Exercicio7()">Exercício 7</button>
+    <button onclick="Exercicio8()">Exercício 8</button>
+    <button onclick="Exercicio9()">Exercício 9</button>
+    <button onclick="Exercicio10()">Exercício 10</button>
+    <button onclick="Exercicio11()">Exercício 11</button>
+</body>
+
+</html>
